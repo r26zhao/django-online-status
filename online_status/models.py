@@ -26,7 +26,7 @@ class OnlineStatus(models.Model):
         return cache.get(cache_key)
 
     def is_online(self):
-        now = datetime.datetime.now()
+        now = timezone.now()
         if self.get_last_active() < now - datetime.timedelta(seconds=settings.USER_ONLINE_TIMEOUT):
             return False
         return True
