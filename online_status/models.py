@@ -27,6 +27,6 @@ class OnlineStatus(models.Model):
 
     def is_online(self):
         now = datetime.datetime.now()
-        if self.get_last_login() < now - datetime.timedelta(seconds=settings.USER_ONLINE_TIMEOUT):
+        if self.get_last_active() < now - datetime.timedelta(seconds=settings.USER_ONLINE_TIMEOUT):
             return False
         return True
