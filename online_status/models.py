@@ -8,7 +8,6 @@ from django.utils import timezone
 class OnlineStatus(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     last_login = models.DateTimeField(default=timezone.now)
-
     class Meta:
         verbose_name = 'Online Status'
         verbose_name_plural = 'Online Status'
